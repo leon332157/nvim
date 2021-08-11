@@ -20,8 +20,6 @@ require("presence"):setup({
     line_number_text = "Line %s out of %s" -- Line number format string (for when enable_line_number is set to true)
 })
 
-vim.opt.termguicolors = true
-
 require("bufferline").setup {}
 
 local autosave = require("autosave")
@@ -42,4 +40,11 @@ autosave.setup(
         debounce_delay = 135
     }
 )
+
+require("indent_blankline").setup {
+    char = "|",
+    buftype_exclude = {"terminal","dashboard"},
+    filetype_exclude = {"dashboard"},
+    blankline_space_char = true
+}
 

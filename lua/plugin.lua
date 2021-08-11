@@ -25,4 +25,6 @@ return require('packer').startup(function()
         requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
       }
       use "Pocco81/AutoSave.nvim"
+      use "glepnir/dashboard-nvim"
+      use "lukas-reineke/indent-blankline.nvim"
 end)

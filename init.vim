@@ -15,5 +15,11 @@ nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 set termguicolors
-"NvimTreeOpen
+set number
+set ignorecase
+set smartcase
+
 lua require('config')
+" dashboard
+let g:dashboard_default_executive = 'telescope'
+"NvimTreeOpen
