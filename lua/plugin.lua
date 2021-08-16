@@ -22,9 +22,22 @@ return require('packer').startup(function()
     }
     use {
         'nvim-telescope/telescope.nvim',
-        requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
-      }
-      use "Pocco81/AutoSave.nvim"
-      use "glepnir/dashboard-nvim"
-      use "lukas-reineke/indent-blankline.nvim"
+        requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
+        config = function()
+            require("pluginConfig.telescope")
+        end
+    }
+    use "Pocco81/AutoSave.nvim"
+    use "glepnir/dashboard-nvim"
+    use "lukas-reineke/indent-blankline.nvim"
+    use 'Mofiqul/vscode.nvim' -- VSCode color theme
+    use 'kaicataldo/material.vim' -- Material Theme
+    use 'fratajczak/one-monokai-vim' -- Monokai 
+    use {
+        'lewis6991/gitsigns.nvim',
+        requires = {'nvim-lua/plenary.nvim'}
+    }
+    use 'shaunsingh/moonlight.nvim'
+    use "rcarriga/nvim-notify"
+
 end)

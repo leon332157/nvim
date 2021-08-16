@@ -9,6 +9,7 @@ endif
 
 " Telescope
 " Using Lua functions
+"
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
@@ -18,6 +19,8 @@ set termguicolors
 set number
 set ignorecase
 set smartcase
+set expandtab
+let mapleader="\<SPACE>"
 
 lua require('config')
 " dashboard
@@ -46,5 +49,12 @@ let g:dashboard_custom_header=[
     \'',
     \]
 
+" copy and paste
+vmap <C-c> "+yi
+vmap <C-x> "+c
+vmap <C-v> c<ESC>"+p
+imap <C-v> <ESC>"+pa
 
-"NvimTreeOpen
+" if nvim starts with a directory as an argument, cd into it and open NvimTree
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) | execute 'cd '.argv()[0] | execute 'NvimTreeOpen' | wincmd l | endif
+autocmd BufWritePost plugins.lua source <afile> | PackerCompile

@@ -16,35 +16,147 @@ require("presence"):setup({
     git_commit_text = "Committing changes", -- Format string rendered when commiting changes in git
     plugin_manager_text = "Managing plugins", -- Format string rendered when managing plugins
     reading_text = "Reading %s", -- Format string rendered when a read-only or unmodifiable file is loaded in the buffer
-    --workspace_text = "Working on %s", -- Workspace format string (either string or function(git_project_name: string|nil, buffer: string): string)
+    -- workspace_text = "Working on %s", -- Workspace format string (either string or function(git_project_name: string|nil, buffer: string): string)
     line_number_text = "Line %s out of %s" -- Line number format string (for when enable_line_number is set to true)
 })
 
-require("bufferline").setup {}
-
-local autosave = require("autosave")
-
-autosave.setup(
-    {
-        enabled = true,
-        execution_message = "AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"),
-        events = {"InsertLeave", "TextChanged"},
-        conditions = {
-            exists = true,
-            filetype_is_not = {},
-            modifiable = true
+-- Buffer line setup
+require'bufferline'.setup {
+    options = {
+        indicator_icon = ' ',
+        buffer_close_icon = '',
+        modified_icon = '●',
+        close_icon = '',
+        close_command = "Bdelete %d",
+        right_mouse_command = "Bdelete! %d",
+        left_trunc_marker = '',
+        right_trunc_marker = '',
+        offsets = {{
+            filetype = "NvimTree",
+            text = "EXPLORER",
+            text_align = "center"
+        }},
+        show_tab_indicators = true,
+        show_close_icon = false
+    },
+    highlights = {
+        fill = {
+            guifg = {
+                attribute = "fg",
+                highlight = "Normal"
+            },
+            guibg = {
+                attribute = "bg",
+                highlight = "StatusLineNC"
+            }
         },
-        write_all_buffers = false,
-        on_off_commands = true,
-        clean_command_line_interval = 0,
-        debounce_delay = 135
+        background = {
+            guifg = {
+                attribute = "fg",
+                highlight = "Normal"
+            },
+            guibg = {
+                attribute = "bg",
+                highlight = "StatusLine"
+            }
+        },
+        buffer_visible = {
+            gui = "",
+            guifg = {
+                attribute = "fg",
+                highlight = "Normal"
+            },
+            guibg = {
+                attribute = "bg",
+                highlight = "Normal"
+            }
+        },
+        buffer_selected = {
+            gui = "",
+            guifg = {
+                attribute = "fg",
+                highlight = "Normal"
+            },
+            guibg = {
+                attribute = "bg",
+                highlight = "Normal"
+            }
+        },
+        separator = {
+            guifg = {
+                attribute = "bg",
+                highlight = "Normal"
+            },
+            guibg = {
+                attribute = "bg",
+                highlight = "StatusLine"
+            }
+        },
+        separator_selected = {
+            guifg = {
+                attribute = "fg",
+                highlight = "Special"
+            },
+            guibg = {
+                attribute = "bg",
+                highlight = "Normal"
+            }
+        },
+        separator_visible = {
+            guifg = {
+                attribute = "fg",
+                highlight = "Normal"
+            },
+            guibg = {
+                attribute = "bg",
+                highlight = "StatusLineNC"
+            }
+        },
+        close_button = {
+            guifg = {
+                attribute = "fg",
+                highlight = "Normal"
+            },
+            guibg = {
+                attribute = "bg",
+                highlight = "StatusLine"
+            }
+        },
+        close_button_selected = {
+            guifg = {
+                attribute = "fg",
+                highlight = "normal"
+            },
+            guibg = {
+                attribute = "bg",
+                highlight = "normal"
+            }
+        },
+        close_button_visible = {
+            guifg = {
+                attribute = "fg",
+                highlight = "normal"
+            },
+            guibg = {
+                attribute = "bg",
+                highlight = "normal"
+            }
+        }
+
     }
-)
+}
 
 require("indent_blankline").setup {
     char = "|",
-    buftype_exclude = {"terminal","dashboard"},
+    buftype_exclude = {"terminal", "dashboard"},
     filetype_exclude = {"dashboard"},
     blankline_space_char = true
 }
 
+-- vscode theme
+vim.g.vscode_style = "dark"
+-- vim.cmd[[colorscheme vscode]]
+
+require('gitsigns').setup()
+require('pluginConfig.autoSave')
+vim.notify = require("notify")
