@@ -153,10 +153,10 @@ require("indent_blankline").setup {
     blankline_space_char = true
 }
 
--- vscode theme
-vim.g.vscode_style = "dark"
--- vim.cmd[[colorscheme vscode]]
 
+vim.g.airline_theme = 'gruvbox_material'
+vim.g.gruvbox_material_background = 'soft'
+vim.api.nvim_command('colorscheme gruvbox-material')
 require('gitsigns').setup()
 require('pluginConfig.autoSave')
 vim.notify = require("notify")

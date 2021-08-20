@@ -21,6 +21,7 @@ return require('packer').startup(function()
         requires = 'kyazdani42/nvim-web-devicons'
     }
     use {
+
         'nvim-telescope/telescope.nvim',
         requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
         config = function()
@@ -39,5 +40,13 @@ return require('packer').startup(function()
     }
     use 'shaunsingh/moonlight.nvim'
     use "rcarriga/nvim-notify"
-
+    use 'sainnhe/gruvbox-material'
+    use 'vim-airline/vim-airline'
+use {
+			"nvim-treesitter/nvim-treesitter",
+			run = ":TSUpdate",
+			config = function()
+				require("pluginConfig.treesitter")
+			end
+		}
 end)
