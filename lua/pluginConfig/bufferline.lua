@@ -12,7 +12,7 @@ require'bufferline'.setup {
         offsets = {{
             filetype = "NvimTree",
             text = "EXPLORER",
-            text_align = "center"
+            text_align = "left"
         }},
         show_tab_indicators = true,
         show_close_icon = false,
