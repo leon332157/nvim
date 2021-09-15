@@ -35,8 +35,8 @@ let g:dashboard_preview_command = 'cat'
 let g:dashboard_preview_file = stdpath('config')..'/logo.txt'
 let g:dashboard_preview_pipeline = 'lolcat'
 endif
-"let g:dashboard_preview_file_width = 80
-"let g:dashboard_preview_file_height = 8
+let g:dashboard_preview_file_width = 30
+let g:dashboard_preview_file_height = 13
 " copy and paste
 vmap <C-c> "+yi
 vmap <C-x> "+c
