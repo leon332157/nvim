@@ -31,10 +31,12 @@ set mouse="a"
 lua require('config')
 " dashboard
 let g:dashboard_default_executive = 'telescope'
+let g:dashboard_preview_file = stdpath('config')..'/logo.txt'
 if !has('win32')
 let g:dashboard_preview_command = 'cat'
-let g:dashboard_preview_file = stdpath('config')..'/logo.txt'
 let g:dashboard_preview_pipeline = 'lolcat'
+else
+let g:dashboard_preview_command = 'type -Encoding utf8'
 endif
 let g:dashboard_preview_file_width = 30
 let g:dashboard_preview_file_height = 13
