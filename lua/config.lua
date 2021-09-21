@@ -7,6 +7,12 @@ require("indent_blankline").setup {
 
 vim.g.airline_theme = 'gruvbox_material'
 vim.g.gruvbox_material_background = 'soft'
-vim.api.nvim_command('colorscheme gruvbox-material')
+vim.cmd('colorscheme gruvbox-material')
 require('gitsigns').setup()
+require('lualine').setup {
+  options = {
+    theme = 'gruvbox-flat'
+    -- ... your lualine config
+  }
+}
 --vim.notify = require("notify")

@@ -57,7 +57,15 @@ return require('packer').startup(function()
     -- use 'shaunsingh/moonlight.nvim'
     use 'rcarriga/nvim-notify'
     use 'sainnhe/gruvbox-material'
-    use 'vim-airline/vim-airline'
+    use 'eddyekofo94/gruvbox-flat.nvim'
+    -- use 'vim-airline/vim-airline'
+    use {
+        'hoob3rt/lualine.nvim',
+        requires = {
+            'kyazdani42/nvim-web-devicons',
+            opt = true
+        }
+    }
     use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate',
