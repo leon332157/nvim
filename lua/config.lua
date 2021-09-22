@@ -10,9 +10,11 @@ vim.g.gruvbox_material_background = 'soft'
 vim.cmd('colorscheme gruvbox-material')
 require('gitsigns').setup()
 require('lualine').setup {
-  options = {
-    theme = 'gruvbox-flat'
-    -- ... your lualine config
-  }
+    options = {
+        theme = 'gruvbox-flat'
+        -- ... your lualine config
+    }
 }
---vim.notify = require("notify")
+-- vim.notify = require("notify")
+-- Format on save
+vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').gofmt() ]], false)

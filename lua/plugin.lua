@@ -81,4 +81,12 @@ return require('packer').startup(function()
         end
     }
     use 'dstein64/nvim-scrollview'
+    use {
+        'ray-x/go.nvim',
+        requires = {},
+        config = function()
+            require('go').setup()
+        end
+    }
+    use 'ray-x/navigator.lua'
 end)
