@@ -88,5 +88,15 @@ return require('packer').startup(function()
             require('go').setup()
         end
     }
-    use 'ray-x/navigator.lua'
+    use {
+        'ray-x/navigator.lua',
+        requires = {
+            'ray-x/guihua.lua',
+            run = 'cd lua/fzy && make'
+        },
+        config = function()
+            require('navigator').setup()
+        end
+    }
+    use 'neovim/nvim-lspconfig'
 end)
