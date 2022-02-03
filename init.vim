@@ -47,5 +47,5 @@ vmap <C-v> c<ESC>"+p
 imap <C-v> <ESC>"+pa
 
 " if nvim starts with a directory as an argument, cd into it and open NvimTree
-#autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) | execute 'cd '.argv()[0] | execute 'NvimTreeOpen' | wincmd l | endif
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) | execute 'cd '.argv()[0] | execute 'NvimTreeOpen' | wincmd l | endif
 autocmd BufWritePost plugins.lua source <afile> | PackerCompile
