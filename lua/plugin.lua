@@ -18,7 +18,7 @@ return require('packer').startup(function()
             require('pluginConfig.presence')
         end
     }
-    use {
+    --[[use {
         'kyazdani42/nvim-tree.lua',
         requires = 'kyazdani42/nvim-web-devicons',
         config = function()
@@ -31,21 +31,21 @@ return require('packer').startup(function()
         config = function()
             require('pluginConfig.bufferline')
         end
-    }
-    use {
+    }]]
+    --[[use {
         'nvim-telescope/telescope.nvim',
         requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
         config = function()
             require('pluginConfig.telescope')
         end
-    }
+    }]]
     use {
         'Pocco81/AutoSave.nvim',
         config = function()
             require('pluginConfig.autoSave')
         end
     }
-    use 'glepnir/dashboard-nvim'
+    --use 'glepnir/dashboard-nvim'
     use 'lukas-reineke/indent-blankline.nvim'
     --[[use 'Mofiqul/vscode.nvim' -- VSCode color theme
     use 'kaicataldo/material.vim' -- Material Theme
@@ -91,15 +91,15 @@ return require('packer').startup(function()
             require('go').setup()
         end
     }
-    use {
+    --[[use {
         'ray-x/navigator.lua',
         requires = {
             'ray-x/guihua.lua',
+            'neovim/nvim-lspconfig',
             run = 'cd lua/fzy && make'
         },
         config = function()
             require('navigator').setup()
         end
-    }
-    use 'neovim/nvim-lspconfig'
+    }]]
 end)
