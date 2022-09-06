@@ -39,12 +39,12 @@ return require('packer').startup(function()
             require('pluginConfig.telescope')
         end
     }]]
-    use {
+    --[[use {
         'Pocco81/AutoSave.nvim',
         config = function()
             require('pluginConfig.autoSave')
         end
-    }
+    }]]
     --use 'glepnir/dashboard-nvim'
     use 'lukas-reineke/indent-blankline.nvim'
     --[[use 'Mofiqul/vscode.nvim' -- VSCode color theme
